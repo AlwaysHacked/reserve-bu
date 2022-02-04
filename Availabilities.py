@@ -19,12 +19,17 @@ class Availabilities:
 			room = room.split()[-1][2:]
 			self.rooms.update({room : []})
 			hourButtons = r.find(class_="hour-grp")
-			hours = hourButtons.find_all(class_="hour")
-			for h in hours:
-				dis = "unavailable" not in str(h)
-				self.rooms[room].append((h.text, dis))
+			try:
+				hours = hourButtons.find_all(class_="hour")
+				for h in hours:
+					dis = "unavailable" not in str(h)
+					self.rooms[room].append((h.text, dis))
+			except:
+				print("No available places :(")
+				return
 
-	def show(self) -> None:
+	def show(self, date) -> None:
+		print(date)
 		for r in self.rooms:
 			printtitle("Salle de travail numéro : " + r)
 			print()
