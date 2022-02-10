@@ -1,0 +1,5 @@
+0 -> success
+1 -> ctrl + c interruption
+2 -> BU closed, sunday for example
+3 -> site unreachable
+4 -> no places
